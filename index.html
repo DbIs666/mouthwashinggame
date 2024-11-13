@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouthwashing - Psychological Horror Adventure Game</title>
+    <meta name="description"
+          content="Mouthwashing is a psychological horror adventure game that immerses players in a chilling narrative set aboard the stranded space freighter, Tulpar. ">
+    <link rel="canonical" href="https://mouthwashinggame.org/"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="logo.ico"/>
+    <style>
+        :root {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        .gradient-overlay {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
+        }
+
+        .content-section {
+            padding: 2rem;
+            background: rgba(20, 20, 20, 0.8);
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .video-container {
+            background: rgba(20, 20, 20, 0.5);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(30, 30, 30, 0.9);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .btn-primary {
+            background-color: #c70000;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #910000;
+        }
+
+        @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 添加轮播相关样式 */
+        .slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        /* 示例图片的背景图案 */
+        .slide1 {
+            background-image: linear-gradient(45deg, #000 25%, transparent 25%),
+            linear-gradient(-45deg, #000 25%, transparent 25%),
+            linear-gradient(45deg, transparent 75%, #000 75%),
+            linear-gradient(-45deg, transparent 75%, #000 75%);
+            background-size: 20px 20px;
+            background-color: #2a2a2a;
+        }
+
+        .slide2 {
+            background-image: radial-gradient(circle at 1px 1px, #000 1px, transparent 0);
+            background-size: 20px 20px;
+            background-color: #3a3a3a;
+        }
+
+        .slide3 {
+            background-image: linear-gradient(0deg, #000 2px, transparent 2px),
+            linear-gradient(90deg, #000 2px, transparent 2px),
+            linear-gradient(0deg, #000 1px, transparent 1px),
+            linear-gradient(90deg, #000 1px, transparent 1px);
+            background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+            background-color: #4a4a4a;
+        }
+    </style>
+</head>
+<body>
+<header class="fixed w-full bg-black bg-opacity-90 z-50">
+    <nav class="container mx-auto px-4 py-4">
+        <div class="flex flex-wrap justify-between items-center">
+            <a href="/" class="text-2xl font-bold">Mouthwashing</a>
+            <div class="space-x-6 hidden md:block">
+                <a href="#overview" class="hover:text-gray-300">Overview</a>
+                <a href="#gameplay" class="hover:text-gray-300">Gameplay</a>
+                <a href="#features" class="hover:text-gray-300">Features</a>
+                <a href="#videos" class="hover:text-gray-300">Videos</a>
+                <a href="#faq" class="hover:text-gray-300">FAQ</a>
+                <a href="https://store.steampowered.com/app/GAME_ID" target="_blank" class="btn-primary">Buy on
+                    Steam</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="pt-16">
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center">
+
+        <div class="slideshow">
+            <div class="slide slide1 active"><img src="./1.jpg" alt="Mouthwashing Game"/></div>
+            <div class="slide slide2"><img src="./2.jpg" alt="Mouthwashing Game"/></div>
+            <div class="slide slide3"><img src="./3.jpg" alt="Mouthwashing Game"/></div>
+        </div>
+        <div class="gradient-overlay absolute top-0 left-0 w-full h-full"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">Mouthwashing</h1>
+            <p class="text-xl md:text-2xl max-w-4xl mx-auto">
+                Embark on a haunting journey aboard the stranded space freighter Tulpar, where psychological horror and
+                survival intertwine in this immersive narrative-driven adventure.
+            </p>
+            <a href="https://store.steampowered.com/app/GAME_ID" target="_blank"
+               class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full mt-8 inline-block transition duration-300">Buy
+                on Steam</a>
+        </div>
+    </section>
+    <!-- Video Section -->
+    <section id="videos" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-10">Gameplay Videos & Walkthroughs</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="video-container">
+                    <div class="aspect-video mb-4">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/DETORcxN-tI?si=HH24ezr0ERpmtEEV"
+                                allowfullscreen></iframe>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Official Launch Trailer</h3>
+                    <p class="text-gray-300">Experience the haunting atmosphere of Mouthwashing in this official launch
+                        trailer. Witness the psychological horror that awaits aboard the Tulpar as the crew battles
+                        their inner demons and external threats.</p>
+                    <div class="mt-2 text-sm text-gray-400">
+                        Duration: 2:15 | Publisher: Game Studio | Released: October 2024
+                    </div>
+                </div>
+                <div class="video-container">
+                    <div class="aspect-video mb-4">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/JYzlbVtHt5A?si=AsbdJBamSm7k33PM"
+                                allowfullscreen></iframe>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Gameplay Walkthrough - Chapter 1</h3>
+                    <p class="text-gray-300">A detailed walkthrough of Mouthwashing Game's opening chapter, featuring
+                        crucial gameplay mechanics and early story developments. Perfect for new players looking to
+                        understand the basics.</p>
+                    <div class="mt-2 text-sm text-gray-400">
+                        Duration: 15:30 | Creator: GameGuide Pro | Views: 50K+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Overview Section -->
+    <section id="overview" class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-10">Mouthwashing Game Overview</h2>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="content-section">
+                    <h3 class="text-2xl font-semibold mb-4">Setting & Background</h3>
+                    <p class="mb-4">
+                        Mouthwashing Game takes place on the Tulpar, a long-haul space freighter that has become
+                        marooned after a catastrophic crash. The crew faces dwindling supplies and psychological tension
+                        as they grapple with their dire situation. As resources become scarce and isolation takes its
+                        toll, the line between reality and nightmare begins to blur.
+                    </p>
+                    <p>
+                        Players experience a nonlinear story that unfolds through the perspectives of different crew
+                        members, primarily focusing on Captain Curly, co-pilot Jimmy, and the mysterious Mouthwashing
+                        incident. The narrative weaves together multiple timelines and viewpoints, creating a complex
+                        tapestry of events that led to the current crisis.
+                    </p>
+                </div>
+                <div class="content-section">
+                    <h3 class="text-2xl font-semibold mb-4">Narrative Structure</h3>
+                    <p class="mb-4">
+                        Players experience a nonlinear story that unfolds through the perspectives of different crew
+                        members, primarily focusing on Captain Curly, co-pilot Jimmy, and their involvement in the
+                        mysterious Mouthwashing game. The narrative weaves together multiple timelines and viewpoints,
+                        creating a complex tapestry of events that led to the current crisis.
+
+                    </p>
+                    <p>
+                        As the story progresses, players uncover dark secrets about the crew's past and their struggle
+                        for survival. Each character's perspective offers unique insights into the unfolding mystery,
+                        while their deteriorating mental states add layers of uncertainty to every revelation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="system-requirements" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-10">System Requirements</h2>
+            <div class="content-section">
+                <table class="w-full border-collapse border border-gray-700">
+                    <thead>
+                    <tr class="bg-gray-800">
+                        <th class="border border-gray-700 px-4 py-2">Component</th>
+                        <th class="border border-gray-700 px-4 py-2">Minimum Requirement</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="border border-gray-700 px-4 py-2">Operating System</td>
+                        <td class="border border-gray-700 px-4 py-2">Windows 10 (64-bit)</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-700 px-4 py-2">Processor</td>
+                        <td class="border border-gray-700 px-4 py-2">Intel Core i5-2400 / AMD FX-6300</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-700 px-4 py-2">Memory</td>
+                        <td class="border border-gray-700 px-4 py-2">8 GB RAM</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-700 px-4 py-2">Graphics</td>
+                        <td class="border border-gray-700 px-4 py-2">NVIDIA GeForce GTX 660 / AMD Radeon HD 7870</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-700 px-4 py-2">DirectX</td>
+                        <td class="border border-gray-700 px-4 py-2">Version 11</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-700 px-4 py-2">Storage</td>
+                        <td class="border border-gray-700 px-4 py-2">20 GB available space</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-700 px-4 py-2">Sound Card</td>
+                        <td class="border border-gray-700 px-4 py-2">DirectX compatible</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <!-- Gameplay Mechanics -->
+    <section id="gameplay" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-10">Gameplay Mechanics</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card">
+                    <h3 class="text-2xl font-semibold mb-4">First-Person Exploration</h3>
+                    <p class="mb-4">
+                        Mouthwashing Game is played from a first-person perspective, emphasizing exploration and
+                        interaction
+                        with the environment. Players must carefully navigate the ship's compromised sections while
+                        managing resources and maintaining their sanity.
+                    </p>
+                    <ul class="list-disc pl-5">
+                        <li>Dynamic environment interactions</li>
+                        <li>Realistic physics system</li>
+                        <li>Detailed inventory management</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-2xl font-semibold mb-4">Psychological Horror Elements</h3>
+                    <p class="mb-4">
+                        Players encounter unsettling visuals and soundscapes that enhance the horror atmosphere without
+                        relying heavily on jump scares. Mouthwashing game's psychological elements manifest through:
+                    </p>
+                    <ul class="list-disc pl-5">
+                        <li>Reality-bending sequences</li>
+                        <li>Atmospheric sound design</li>
+                        <li>Mental state mechanics</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-2xl font-semibold mb-4">Narrative Exploration</h3>
+                    <p class="mb-4">
+                        Mouthwashing Game features minimal combat, instead focusing on narrative exploration and
+                        puzzle-solving. Players must piece together the story through:
+                    </p>
+                    <ul class="list-disc pl-5">
+                        <li>Environmental storytelling</li>
+                        <li>Character interactions</li>
+                        <li>Found documents and recordings</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section id="features" class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-10">Key Features</h2>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="content-section">
+                    <h3 class="text-2xl font-semibold mb-4">Immersive Storytelling</h3>
+                    <p>
+                        Mouthwashing Game is praised for its compelling narrative that explores themes of survival,
+                        madness, and human depravity. Players are drawn into the psychological struggles of the crew as
+                        they face isolation and desperation, making crucial decisions that impact the story's outcome.
+                    </p>
+                </div>
+                <div class="content-section">
+                    <h3 class="text-2xl font-semibold mb-4">Unique Visual Style</h3>
+                    <p>
+                        Mouthwashing features surreal visuals that blur the line between reality and nightmare, creating
+                        an unsettling experience as players navigate the ship. Mouthwashing Game's distinctive art
+                        direction combines retrofuturistic design with psychological horror elements.
+                    </p>
+                </div>
+                <div class="content-section">
+                    <h3 class="text-2xl font-semibold mb-4">Character Dynamics</h3>
+                    <p>
+                        The interactions between crew members are central to the story, with tensions escalating as they
+                        participate in the haunting Mouthwashing game, showcasing their unraveling sanity as they
+                        confront their grim fate. Each character's personal journey and relationships contribute to the
+                        overall narrative depth.
+                    </p>
+                </div>
+                <div class="content-section">
+                    <h3 class="text-2xl font-semibold mb-4">Reception</h3>
+                    <p>
+                        Mouthwashing has received positive reviews from players and critics alike. Many have highlighted
+                        its gripping atmosphere, strong character development, and innovative storytelling techniques.
+                        Mouthwashing Game's ability to evoke deep emotional responses and provoke thought about human
+                        nature under extreme circumstances has been particularly well-received.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-10">Frequently Asked Questions</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="content-section">
+                    <h3 class="text-2xl font-semibold mb-4">Game Information</h3>
+                    <div class="space-y-6">
+                        <div class="faq-item">
+                            <h4 class="text-xl font-semibold mb-2">What type of game is Mouthwashing?</h4>
+                            <p>Mouthwashing Game is a psychological horror adventure game that focuses on narrative
+                                exploration and puzzle-solving, featuring minimal combat and emphasizing storytelling
+                                and atmosphere.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4 class="text-xl font-semibold mb-2">How long does it take to complete?</h4>
+                            <p>The main story typically takes 4-6 hours to complete, but completionists seeking to
+                                uncover all secrets and alternate endings may spend 8-10 hours or more.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-section">
+                    <h3 class="text-2xl font-semibold mb-4">Technical Questions</h3>
+                    <div class="space-y-6">
+                        <div class="faq-item">
+                            <h4 class="text-xl font-semibold mb-2">What are the system requirements?</h4>
+                            <p>Mouthwashing Game runs on most modern PCs with dedicated graphics cards. Specific
+                                requirements include 8GB RAM, DirectX 11 compatible GPU, and 20GB storage space.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4 class="text-xl font-semibold mb-2">Is Mouthwashing Game available on consoles?</h4>
+                            <p>Currently, Mouthwashing is available on PC via Steam, with console versions planned for
+                                future release.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-black py-10">
+    <div class="container mx-auto px-4 text-center">
+        <p>&copy; 2024 Mouthwashing Guide. All rights reserved.</p>
+        <div class="mt-4">
+            <a href="#" class="hover:text-gray-300 mx-2">Privacy Policy</a>
+            <a href="#" class="hover:text-gray-300 mx-2">Terms of Service</a>
+            <a href="#" class="hover:text-gray-300 mx-2">Contact</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // 轮播功能
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+
+    // 每5秒切换一次图片
+    setInterval(nextSlide, 5000);
+</script>
+</body>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P8P233JCTL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-P8P233JCTL');
+</script>
+</html>
